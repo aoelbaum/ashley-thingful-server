@@ -107,7 +107,7 @@ describe('Things Endpoints', function() {
           helpers.makeExpectedThing(
             testUsers,
             thing,
-            testReviews,
+            testReviews
           )
         )
         return supertest(app)
