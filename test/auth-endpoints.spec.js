@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const app = require('../src/app');
 const helpers = require('./test-helpers');
 
-describe('Auth Endpoints', function() {
+describe.only('Auth Endpoints', function() {
   let db;
 
   const {testUsers} = helpers.makeThingsFixtures();
@@ -45,7 +45,7 @@ describe('Auth Endpoints', function() {
           .post('/api/auth/login')
           .send(loginAttemptBody)
           .expect(400, {
-            error: `Missing '${field}' in requrest body`
+            error: `Missing '${field}' in request body`
           });
       });
     });

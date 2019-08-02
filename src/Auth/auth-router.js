@@ -2,7 +2,7 @@ const express = require('express');
 const AuthService = require('./auth-service');
 const authRouter = express.Router();
 const jsonBodyParser = express.json();
-const {requireAuth} = require('./auth-service');
+const {requireAuth} = require('../middleware/jwt-auth');
 
 
 authRouter
@@ -12,7 +12,7 @@ authRouter
     for(const [key, value] of Object.entries(loginUser))
       if (value == null)
         return res.status(400).json({
-          error: `Missing '${key}' in requrest body`
+          error: `Missing '${key}' in request body`
         });
 
     AuthService.getUserWithUserName(
